@@ -6,53 +6,87 @@ import RestaurantDetail from "./components/RestaurantDetail";
 import RestaurantList from "./components/RestaurantList";
 import RestaurantSearch from "./components/RestaurantSearch";
 import RestaurantUpdate from "./components/RestaurantUpdate";
+import { Navbar, Nav } from "react-bootstrap";
+import "./App.css";
 
 export class App extends Component {
   render() {
     return (
-      <>
-        <Router>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/list">List</Link>
-            </li>
-            <li>
-              <Link to="/create">Create</Link>
-            </li>
-            <li>
-              <Link to="/search">Search</Link>
-            </li>
-            <li>
-              <Link to="/details">RestaurantDetail</Link>
-            </li>
-            <li>
-              <Link to="/update">Update</Link>
-            </li>
-          </ul>
+      <Router>
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+          <Navbar.Brand href="#home">Resto</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="ml-auto ">
+              <Nav.Link href="#home">
+                <Link className="link" to="/">
+                  Home
+                </Link>
+              </Nav.Link>
+              <Nav.Link href="#home">
+                <Link className="link" to="/list">
+                  List
+                </Link>
+              </Nav.Link>
+              <Nav.Link href="#home">
+                <Link className="link" to="/create">
+                  Create
+                </Link>
+              </Nav.Link>
+              <Nav.Link href="#home">
+                <Link className="link" to="/search">
+                  Search
+                </Link>
+              </Nav.Link>
+              <Nav.Link href="#home">
+                <Link className="link" to="/update">
+                  Update
+                </Link>
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
 
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/list">
-            <RestaurantList />
-          </Route>
-          <Route path="/create">
-            <RestaurantCreate />
-          </Route>
-          <Route path="/search">
-            <RestaurantSearch />
-          </Route>
-          <Route path="/details">
-            <RestaurantDetail />
-          </Route>
-          <Route path="/update">
-            <RestaurantUpdate />
-          </Route>
-        </Router>
-      </>
+        {/* <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/list">List</Link>
+          </li>
+          <li>
+            <Link to="/create">Create</Link>
+          </li>
+          <li>
+            <Link to="/search">Search</Link>
+          </li>
+          <li>
+            <Link to="/details">RestaurantDetail</Link>
+          </li>
+          <li>
+            <Link to="/update">Update</Link>
+          </li>
+        </ul> */}
+
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/list">
+          <RestaurantList />
+        </Route>
+        <Route path="/create">
+          <RestaurantCreate />
+        </Route>
+        <Route path="/search">
+          <RestaurantSearch />
+        </Route>
+        <Route path="/details">
+          <RestaurantDetail />
+        </Route>
+        <Route path="/update">
+          <RestaurantUpdate />
+        </Route>
+      </Router>
     );
   }
 }
