@@ -68,24 +68,17 @@ export class App extends Component {
           </li>
         </ul> */}
 
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/list">
-          <RestaurantList />
-        </Route>
-        <Route path="/create">
-          <RestaurantCreate />
-        </Route>
-        <Route path="/search">
-          <RestaurantSearch />
-        </Route>
-        <Route path="/details">
-          <RestaurantDetail />
-        </Route>
-        <Route path="/update">
-          <RestaurantUpdate />
-        </Route>
+        <Route exact path="/" component={Home} />
+
+        <Route path="/list" component={RestaurantList} />
+
+        <Route path="/create" component={RestaurantCreate} />
+
+        <Route path="/search" component={RestaurantSearch} />
+
+        <Route path="/details" component={RestaurantDetail} />
+
+        <Route path="/update/:profile_id" component={RestaurantUpdate} />
       </Router>
     );
   }
