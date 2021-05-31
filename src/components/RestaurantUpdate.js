@@ -8,7 +8,7 @@ export class RestaurantUpdate extends Component {
 
   componentDidMount() {
     fetch(
-      `http://localhost:3000/restaurant/${this.props.match.params.profile_id}`
+      `https://60b447904ecdc100174805e6.mockapi.io/Restaurants/${this.props.match.params.profile_id}`
     ).then((response) =>
       response.json().then((result) => {
         this.setState({ ...result });
@@ -23,7 +23,7 @@ export class RestaurantUpdate extends Component {
   handleSubmit = (evt) => {
     evt.preventDefault();
     fetch(
-      `http://localhost:3000/restaurant/${this.props.match.params.profile_id}`,
+      `https://60b447904ecdc100174805e6.mockapi.io/Restaurants/${this.props.match.params.profile_id}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },

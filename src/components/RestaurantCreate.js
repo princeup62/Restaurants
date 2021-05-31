@@ -17,7 +17,7 @@ export class RestaurantCreate extends Component {
   handleSubmit = (evt) => {
     evt.preventDefault();
 
-    fetch("http://localhost:3000/restaurant", {
+    fetch("https://60b447904ecdc100174805e6.mockapi.io/Restaurants", {
       method: "POST",
 
       headers: { "Content-Type": "application/json" },
@@ -36,6 +36,7 @@ export class RestaurantCreate extends Component {
     return (
       <div className="container-fluid mt-5">
         <div className="row">
+          <h4 className="my-3 text-center">Create New Restaurants </h4>
           <div className="col-md-6 mx-auto">
             <form onSubmit={(evt) => this.handleSubmit(evt)}>
               <div className="mb-3">

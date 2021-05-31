@@ -1,11 +1,18 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import RestaurantCreate from "./components/RestaurantCreate";
 import RestaurantDetail from "./components/RestaurantDetail";
 import RestaurantList from "./components/RestaurantList";
 import RestaurantSearch from "./components/RestaurantSearch";
 import RestaurantUpdate from "./components/RestaurantUpdate";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faList,
+  faPlusSquare,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 import { Navbar, Nav } from "react-bootstrap";
 import "./App.css";
 
@@ -20,27 +27,22 @@ export class App extends Component {
             <Nav className="ml-auto ">
               <Nav.Link href="#home">
                 <Link className="link" to="/">
-                  Home
+                  <FontAwesomeIcon icon={faHome} color="blue" /> Home
                 </Link>
               </Nav.Link>
               <Nav.Link href="#home">
                 <Link className="link" to="/list">
-                  List
+                  <FontAwesomeIcon icon={faList} color="blue" /> List
                 </Link>
               </Nav.Link>
               <Nav.Link href="#home">
                 <Link className="link" to="/create">
-                  Create
+                  <FontAwesomeIcon icon={faPlusSquare} color="blue" /> Create
                 </Link>
               </Nav.Link>
               <Nav.Link href="#home">
                 <Link className="link" to="/search">
-                  Search
-                </Link>
-              </Nav.Link>
-              <Nav.Link href="#home">
-                <Link className="link" to="/update">
-                  Update
+                  <FontAwesomeIcon icon={faSearch} color="blue" /> Search
                 </Link>
               </Nav.Link>
             </Nav>

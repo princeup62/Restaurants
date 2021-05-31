@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Table } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 export class RestaurantList extends Component {
@@ -11,12 +13,22 @@ export class RestaurantList extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/restaurant").then((response) =>
-      response.json().then((result) => {
-        this.setState({ list: result });
-      })
+    fetch("https://60b447904ecdc100174805e6.mockapi.io/Restaurants").then(
+      (response) =>
+        response.json().then((result) => {
+          this.setState({ list: result });
+        })
     );
   }
+
+  delete = (id) => {
+    fetch(`https://60b447904ecdc100174805e6.mockapi.io/Restaurants/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      let tempArray = this.state.list.filter((el) => el.id !== id);
+      this.setState({ list: [...tempArray] });
+    });
+  };
 
   render() {
     return (
@@ -43,14 +55,20 @@ export class RestaurantList extends Component {
                       <td>{item.rating}</td>
                       <td>{item.address}</td>
                       <td>
-                        <button className="btn btn-info ">
-                          <Link
-                            className="link text-light"
-                            to={"/update/" + item.id}
-                          >
-                            Update
-                          </Link>
-                        </button>
+                        <Link
+                          className="link text-light"
+                          to={"/update/" + item.id}
+                        >
+                          <FontAwesomeIcon icon={faEdit} color="orange" />
+                        </Link>
+
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          color="red"
+                          className="mx-3"
+                          onClick={() => this.delete(item.id)}
+                          id={item.id}
+                        />
                       </td>
                     </tr>
                   );
